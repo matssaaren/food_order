@@ -12,13 +12,9 @@ const MealItem = (props) => {
     const [cart, setCart] = useContext(CartContext);
 
     const addItem = () => {
-        console.log("Adding item to cart");
         const meal = props.meal
-        console.log(meal);
-        
         const newCart = [...cart, meal]; 
         setCart(newCart);
-        console.log(cart);
     }
 
     return (
