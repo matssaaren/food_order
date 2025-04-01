@@ -9,8 +9,6 @@ const ModalOverlay = (props) => {
         cartTotal += item.price * item.quantity;
     })
 
-    const close
-
     return (
         <dialog className='modal cart' open>
             <h2>Your cart</h2>
