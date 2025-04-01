@@ -12,10 +12,19 @@ const MealItem = (props) => {
     const [cart, setCart] = useContext(CartContext);
 
     const addItem = () => {
-        const meal = props.meal
-        const newCart = [...cart, meal]; 
-        setCart(newCart);
-    }
+        const meal = props.meal;
+
+        const existingItem = cart.find(item => item.id === meal.id);
+
+        if (existingItem) {
+            const updatedCart = cart.map(item =>
+                item.id === meal.id ? { ...item, quantity: item.quantity + 1 } : item
+            );
+            setCart(updatedCart);
+        } else {
+            setCart([...cart, { ...meal, quantity: 1 }]);
+        }
+    };
 
     return (
         <li className="meal-item">
